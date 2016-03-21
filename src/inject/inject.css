@@ -4,6 +4,7 @@
 
 #test-code-panel{
 	position: absolute;
+	width: 400px;
 	background-color: rgb(20,20,20);
 	z-index: 99999;
 }

@@ -41,7 +41,10 @@
       "js": [
         "src/inject/inject.js",
         "js/jquery/jquery.min.js",
-        "js/codemirror/codemirror.js"
+        "js/codemirror/codemirror.js",
+        "js/codemirror/javascript.js",
+        "js/codemirror/javascript-hint.js",
+        "js/codemirror/javascript-lint.js"
       ]
     }
   ]
