@@ -29,7 +29,9 @@
         "https://www.google.com/*"
       ],
       "css": [
-        "src/inject/inject.css"
+        "src/inject/inject.css",
+        "css/codemirror.css",
+        "css/ambiance.css"
       ]
     },
     {
@@ -37,7 +39,9 @@
         "https://www.google.com/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "js/jquery/jquery.min.js",
+        "js/codemirror/codemirror.js"
       ]
     }
   ]

@@ -1,3 +1,9 @@
 /**
  * Place your custom CSS styles here.
  **/
+
+#test-code-panel{
+	position: absolute;
+	background-color: rgb(20,20,20);
+	z-index: 99999;
+}
