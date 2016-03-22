@@ -21,12 +21,12 @@
     "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
-    "https://*/*,http://*/*"
+    "https://*/*,http://*/*,file://*/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "<all_urls>"
       ],
       "css": [
         "src/inject/inject.css",
@@ -36,7 +36,7 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "<all_urls>"
       ],
       "js": [
         "src/inject/inject.js",
