@@ -11,7 +11,7 @@ chrome.extension.sendMessage({}, function(response) {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
 
-		// ----------------------------------------------------------
+		/*// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
 		console.log("Hello. This message was sent from scripts/inject.js");
 		// ----------------------------------------------------------
@@ -21,10 +21,31 @@ chrome.extension.sendMessage({}, function(response) {
 
 		var customScripts = '<script>var editorSelector = document.getElementById(\'codemirror-container\');\r\n\r\nvar editor = CodeMirror(editorSelector, {\r\n\tvalue: \"function myScript(){return 100;}\\n\",\r\n  \tmode:  \"javascript\",\r\n  \ttheme: \'ambiance\',\r\n  \tstylesheet: \"css\/CodeMirror.css\",\r\n    lineNumbers: true\r\n});'
 							+ ' $(\'#run\').click(()=>{eval(editor.getValue())}); <\/script>'; 
-		$('body').append(customScripts);
+		$('body').append(customScripts);*/
 		
 
 	}
 	}, 10);
 
 });
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+  	console.log("MESSAGE RECIEVED")
+    if( request.message === "inject_scripts") {
+    	console.log($('#test-code-panel').length)
+    	if($('#test-code-panel').length == 0){
+	      // Inject panel controls to body of webpage
+			document.body.innerHTML += panelControls;
+
+			var customScripts = '<script>var editorSelector = document.getElementById(\'codemirror-container\');\r\n\r\nvar editor = CodeMirror(editorSelector, {\r\n\tvalue: \"function myScript(){return 100;}\\n\",\r\n  \tmode:  \"javascript\",\r\n  \ttheme: \'ambiance\',\r\n  \tstylesheet: \"css\/CodeMirror.css\",\r\n    lineNumbers: true\r\n});'
+								+ ' $(\'#run\').click(()=>{eval(editor.getValue())}); <\/script>'; 
+			$('body').append(customScripts);
+		}
+		else {
+			$('#test-code-panel').remove();
+		}
+    }
+
+  }
+);

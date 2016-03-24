@@ -10,19 +10,27 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "background": {
+  /*"background": {
     "page": "src/bg/background.html",
     "persistent": true
-  },
-  "options_page": "src/options_custom/index.html",
+  },*/
+  /*"options_page": "src/options_custom/index.html",
   "page_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "page action demo",
     "default_popup": "src/page_action/page_action.html"
+  },*/
+  "browser_action": {
+    "default_title": "Inject jQuery"
   },
   "permissions": [
-    "https://*/*,http://*/*,file://*/*"
+    "https://*/*,http://*/*,file://*/*",
+    "activeTab"
   ],
+  "background": {
+      "persistent": false,
+      "scripts": ["src/bg/background.js"]
+  },
   "content_scripts": [
     {
       "matches": [
