@@ -3,15 +3,15 @@
  **/
 
 #test-code-panel{
-	float: left;
+	/*float: left;*/
 	top: 0;
-	position: absolute;
+	position: fixed;
 	width: 800px;
 	padding-top: 20px;
 	background-color: rgb(20,20,20);
 	z-index: 99999;
 	opacity: .3;
-	transition: ease-in-out, opacity .35s ease-in-out;
+	transition: ease-in-out, opacity .20s ease-in-out;
 }
 
 #test-code-panel:hover{ opacity: 1;}

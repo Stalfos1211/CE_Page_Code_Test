@@ -11,7 +11,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     var activeTab = tabs[0];
     
     chrome.tabs.sendMessage(activeTab.id, {"message": "inject_scripts"});
-    console.log('BG CLICKED')
+    //console.log('BG CLICKED')
 
   });
 });

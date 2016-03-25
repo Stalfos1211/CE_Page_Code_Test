@@ -33,13 +33,15 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
   	console.log("MESSAGE RECIEVED")
     if( request.message === "inject_scripts") {
-    	console.log($('#test-code-panel').length)
+
     	if($('#test-code-panel').length == 0){
 	      // Inject panel controls to body of webpage
 			document.body.innerHTML += panelControls;
 
-			var customScripts = '<script>var editorSelector = document.getElementById(\'codemirror-container\');\r\n\r\nvar editor = CodeMirror(editorSelector, {\r\n\tvalue: \"function myScript(){return 100;}\\n\",\r\n  \tmode:  \"javascript\",\r\n  \ttheme: \'ambiance\',\r\n  \tstylesheet: \"css\/CodeMirror.css\",\r\n    lineNumbers: true\r\n});'
-								+ ' $(\'#run\').click(()=>{eval(editor.getValue())}); <\/script>'; 
+			var customScripts = '<script>var editorSelector = document.getElementById(\'codemirror-container\');\r\n\r\nvar editor = CodeMirror(editorSelector, {\r\n\tvalue: \"alert(\'test\')\\n\",\r\n  \tmode:  \"javascript\",\r\n  \ttheme: \'ambiance\',\r\n  \tstylesheet: \"css\/CodeMirror.css\",\r\n    lineNumbers: true\r\n});'
+								//+ ' $(\'#run\').click(()=>{eval(editor.getValue())});'
+								+ ' $(\'#run\').click(()=>{var f = new Function(editor.getValue()); f();});'
+								+ ' <\/script>'; 
 			$('body').append(customScripts);
 		}
 		else {
